@@ -8,6 +8,13 @@ import Dropdown from "./component/dropdown";
 
 function App() {
   const BASE_API: string = "https://openlibrary.org/search.json";
+
+  const [query, setQuery] = useState<string>("harry potter");
+  const [limit, setLimit] = useState<number>(10);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [page, setPage] = useState<number>(1);
+  const [books, setBooks] = useState<any[]>([]);
+
   const BASIC_TABLE_FIELDS: TableField[] = [
     { label: "Title", value: "title" },
     { label: "Subject", value: "subject" },
@@ -21,26 +28,24 @@ function App() {
     {
       text: "10",
       action: () => setLimit(10),
+      active: limit == 10,
     },
     {
       text: "20",
       action: () => setLimit(20),
+      active: limit == 20,
     },
     {
       text: "50",
       action: () => setLimit(50),
+      active: limit == 50,
     },
     {
       text: "100",
       action: () => setLimit(100),
+      active: limit == 100,
     },
   ];
-
-  const [query, setQuery] = useState<string>("harry potter");
-  const [limit, setLimit] = useState<number>(10);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [page, setPage] = useState<number>(1);
-  const [books, setBooks] = useState<any[]>([]);
 
   const createParams = (): string => {
     let params = "";

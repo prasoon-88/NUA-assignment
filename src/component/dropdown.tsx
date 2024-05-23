@@ -3,6 +3,7 @@ import { ReactNode } from "react";
 interface Children {
   text: string;
   action: any;
+  active?: boolean;
 }
 
 interface Dropdown {
@@ -21,9 +22,16 @@ const Dropdown = ({ children, value }: Dropdown) => {
       >
         {value}
       </i>
-      <ul className="dropdown-menu mt-24" aria-labelledby="dropdownMenuButton">
+      <ul
+        className={`dropdown-menu mt-24`}
+        aria-labelledby="dropdownMenuButton"
+      >
         {children.map((item: Children, index: number) => (
-          <li key={index} className="dropdown-item" onClick={item.action}>
+          <li
+            key={index}
+            className={`dropdown-item ${item.active ? "active" : ""}`}
+            onClick={item.action}
+          >
             {item.text}
           </li>
         ))}
