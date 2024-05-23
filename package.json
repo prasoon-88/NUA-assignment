@@ -10,12 +10,18 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.3.3",
     "axios": "^1.7.2",
+    "crypto-js": "^4.2.0",
+    "firebase": "^10.12.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "scss": "^0.2.4"
+    "react-router-dom": "^6.23.1",
+    "scss": "^0.2.4",
+    "universal-cookie": "^7.1.4"
   },
   "devDependencies": {
+    "@types/crypto-js": "^4.2.2",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
     "@typescript-eslint/eslint-plugin": "^7.2.0",
