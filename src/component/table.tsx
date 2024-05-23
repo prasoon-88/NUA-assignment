@@ -1,13 +1,26 @@
 import { TableField, TableProps } from "../types";
 
+interface PillProps {
+  text: string;
+}
+const Pill = ({ text }: PillProps) => {
+  return `<span class="badge badge-pill badge-light text-dark ml-1">${text}</span>`;
+};
+
 const handleArrayPrinting = (value: string[]) => {
   if (!value.length) {
     return "";
   }
-  const resultString = value.join(",");
-  return resultString.length > 50
-    ? resultString.slice(0, 50) + "..."
-    : resultString;
+  let result = "";
+  let len = 0;
+  for (let i = 0; i < value.length; i++) {
+    if (len > 40) {
+      break;
+    }
+    result += Pill({ text: value[i] });
+    len += value[i].length;
+  }
+  return result;
 };
 
 const Table = ({ head, body, classNames = "" }: TableProps) => {
@@ -26,11 +39,17 @@ const Table = ({ head, body, classNames = "" }: TableProps) => {
             <tr key={index}>
               {head.map((col: TableField) => (
                 <td key={row} title={row[col.value]}>
-                  {typeof row[col.value] == "object"
-                    ? handleArrayPrinting(row[col.value])
-                    : row[col.value]
-                    ? String(row[col.value])?.slice(0, 30)
-                    : ""}
+                  {typeof row[col.value] == "object" ? (
+                    <span
+                      dangerouslySetInnerHTML={{
+                        __html: handleArrayPrinting(row[col.value]),
+                      }}
+                    ></span>
+                  ) : row[col.value] ? (
+                    String(row[col.value])?.slice(0, 30)
+                  ) : (
+                    ""
+                  )}
                 </td>
               ))}
             </tr>
