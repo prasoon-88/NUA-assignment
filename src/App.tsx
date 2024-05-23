@@ -5,6 +5,7 @@ import { TableField } from "./types";
 import Table from "./component/table";
 import Loader from "./component/loader";
 import Dropdown from "./component/dropdown";
+import { downloadCSV } from "./utils";
 
 function App() {
   const BASE_API: string = "https://openlibrary.org/search.json";
@@ -109,6 +110,12 @@ function App() {
           />
         </div>
         <div className="tableButton">
+          <button
+            className="button-p pt-6 pb-6 cursor-pointer"
+            onClick={() => downloadCSV(BASIC_TABLE_FIELDS, books)}
+          >
+            Download CSV
+          </button>
           <Dropdown
             children={PAGE_DROPDOWN_ITEMS}
             value={

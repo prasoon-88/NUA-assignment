@@ -6,9 +6,10 @@
     table {
         width: 100%;
         border-radius: 24px;
-        thead{
+
+        thead {
             background: rgba(255, 255, 255, 0.49);
-        }
+            }
     }
 
     table,
@@ -21,6 +22,6 @@
 
     th,
     td {
-        padding:12px;
+        padding: 12px;
     }
 }
