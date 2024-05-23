@@ -1,0 +1,11 @@
+#app {
+    .searchBox {
+        width: 40%;
+    }
+
+    @media screen and (max-width:767px) {
+        .searchBox {
+            width: 100%;
+        }
+    }
+}
