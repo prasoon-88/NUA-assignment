@@ -1,6 +1,23 @@
 #app {
+
+    header{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+    }
     .searchBox {
         width: 40%;
+    }
+
+    .tableButton{
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(234, 233, 233, 0.171);
+        padding: 6px 12px;
+        border-radius: 4px;
+        backdrop-filter: blur(2px);
     }
 
     @media screen and (max-width:767px) {
