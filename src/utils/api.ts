@@ -97,12 +97,6 @@ export const handleGoogleSSO = async (): Promise<MessageProp> => {
         await signUp({
           name: credential.user.displayName,
           email: credential.user.email,
-          phoneNumber: credential.user.phoneNumber,
-          profilePic: credential.user.photoURL
-            ? credential.user.photoURL
-            : getInitials(
-                credential.user.displayName ? credential.user.displayName : "AB"
-              ),
           loginType: "sso",
         });
       }
