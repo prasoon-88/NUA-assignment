@@ -39,7 +39,9 @@ const Login = () => {
   return (
     <div id="loginPage" className="col-md-4 col-12 mx-auto pt-48">
       <form className="" onSubmit={onSubmit}>
-        <div className="fs-42 font-700 mt-36 font-lora">Log in to Twitter</div>
+        <div className="fs-42 font-700 mt-36 font-lora">
+          Log in to TUA Assignment
+        </div>
         <div className="mt-24">
           <Input
             classNames="fs-18 p-12 pl-8 pr-8"
