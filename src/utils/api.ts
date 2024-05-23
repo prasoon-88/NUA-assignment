@@ -39,26 +39,16 @@ export const signUp = async (data: any): Promise<MessageProp> => {
   }
 };
 
-export const login = async (payload: any): Promise<MessageProp> => {
+export const login = async (payload: any) => {
   try {
     const { data } = await checkUser(payload.email);
     if (data && data.password === payload.password) {
       setCookie("auth", enCrypt(data.email));
-      return createMsg({
-        state: "success",
-        msg: `Hi ${data.name}! Welcome on Twitter`,
-      });
-    } else {
-      return createMsg({
-        state: "error",
-        msg: "Invalid id or password",
-      });
+      return true;
     }
-  } catch (error: any) {
-    return createMsg({
-      state: "error",
-      msg: "Something Went Wrong",
-    });
+    return false;
+  } catch (error) {
+    console.log(error);
   }
 };
 

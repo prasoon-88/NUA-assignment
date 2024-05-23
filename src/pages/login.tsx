@@ -29,8 +29,7 @@ const Login = () => {
       return;
     }
     const check = await login({ email, password });
-    console.log(check);
-    if (check.state !== "success") {
+    if (check) {
       setPassword("");
       navigate("/", { replace: true });
     } else {
